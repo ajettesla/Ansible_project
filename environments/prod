@@ -2,16 +2,9 @@
 localhost ansible_connection=local  
 
 [lb] 
-lb  
+haproxy  
 
 [app] 
-app1 
-app2   
-
-[db] 
-db  
-
-[prod:children] 
-lb 
-app 
-db 
+devA
+devB
+devC   
