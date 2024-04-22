@@ -1,0 +1,14 @@
+frontend httpsandhttp
+   bind {{lb.ip}}:{{lb.listeningport}}
+   timeout client {{lb.clienttimeout}}
+   mode {{lb.mode}}
+   default_backend allservers
+   
+backend allservers
+   timeout connect {{lb.servertimeout}}
+   timeout server {{lb.requesttimeout}}
+   mode {{lb.mode}}
+   server server1 {{app.ip1}}:{{app.port1}}
+   server server2 {{app.ip2}}:{{app.port2}}
+   server server3 {{app.ip3}}:{{app.port3}}
+   server server4 {{app:ip4}}:{{app.port4}}

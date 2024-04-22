@@ -1,0 +1,40 @@
+---
+ - name: install python, python-pip and git
+   apt:
+     name: python3
+     name: python3-pip
+     name: git
+     state: present
+     update_cache: true
+   
+ - name: install pip 
+   pip: 
+     name: flask
+
+   
+ - name: Ensure repo exist or not
+   stat:
+     path: /opt/NSO_A2
+   register: repo_dir
+
+   
+ - name: Clone git repository
+   git:
+     repo: https://github.com/patrikarlos/NSO_A2.git
+     dest: /opt/NSO_A2
+   register: git_output
+   when: not repo_dir.stat.exists
+
+
+ - name: Update git repository if changes are pushed
+   git:
+     repo: https://github.com/patrikarlos/NSO_A2.git
+     dest: /opt/NSO_A2
+     force: yes
+   when: git_output.changed
+
+   
+
+   
+
+   
