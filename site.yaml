@@ -1,10 +1,4 @@
 ---
- - name: localhost
-   hosts: localhost
-   become: true
-   roles:
-     - system
- 
  - name: application loading
    hosts: app
    become: true
