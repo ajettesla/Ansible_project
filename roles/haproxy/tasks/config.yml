@@ -5,39 +5,5 @@
     owner: root
     group: root
     mode: '0644'
-    
-- name: Find IP address for devA in /etc/hosts
-  shell: cat /etc/hosts | grep "devA" | cut -d" " -f1
-  register: devA_ip
-
-- name: Find and replace devA IP in haproxy.conf
-  ansible.builtin.replace:
-    path: /etc/haproxy/haproxy.cfg
-    regexp: 'devA'
-    replace: '{{ devA_ip.stdout }}'
-  notify:
-    - restart haproxy
-
-- name: Find IP address for devA in /etc/hosts
-  shell: cat /etc/hosts | grep "devB" | cut -d" " -f1
-  register: devB_ip
-
-- name: Find and replace devB IP in haproxy.conf
-  ansible.builtin.replace:
-    path: /etc/haproxy/haproxy.cfg
-    regexp: 'devB'
-    replace: '{{ devB_ip.stdout }}'
-  notify:
-    - restart haproxy
-
-- name: Find IP address for devC in /etc/hosts
-  shell: cat /etc/hosts | grep "devC" | cut -d" " -f1
-  register: devC_ip
-
-- name: Find and replace devC IP in haproxy.conf
-  ansible.builtin.replace:
-    path: /etc/haproxy/haproxy.cfg
-    regexp: 'devC'
-    replace: '{{ devC_ip.stdout }}'
   notify:
     - restart haproxy
