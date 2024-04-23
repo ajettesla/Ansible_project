@@ -5,7 +5,7 @@
     owner: root
     group: root
     mode: '0644'
-
+    
 - name: Find IP address for devA in /etc/hosts
   shell: cat /etc/hosts | grep "devA" | cut -d" " -f1
   register: devA_ip
