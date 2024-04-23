@@ -1,6 +1,6 @@
 ---
  - name: localhost
-   hosts: local
+   hosts: localhost
    become: true
    roles:
      - system
