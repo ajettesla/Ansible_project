@@ -2,7 +2,7 @@
 localhost ansible_connection=local  
 
 [lb] 
-haproxy  
+HAproxy
 
 [app] 
 devA
