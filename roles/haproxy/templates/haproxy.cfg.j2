@@ -8,6 +8,7 @@ backend allservers
    timeout connect {{ lb.servertimeout }}
    timeout server {{ lb.requesttimeout }}
    mode {{ lb.mode }}
+
    
    server  devA  {{ hostvars[devA]["ansible_default_ipv4"]["address"] }}:{{ app.port1 }}
    server  devB  {{ hostvars[devB]["ansible_default_ipv4"]["address"] }}:{{ app.port2 }}
