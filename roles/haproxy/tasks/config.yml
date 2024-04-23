@@ -3,7 +3,7 @@
     path: /etc/hosts
     insertafter: EOF
     line: "{{ item }}"
-  with_lines: cat test.txt
+  with_lines: cat /tmp/test.txt
 
 
 - name: Copy HAProxy configuration file
