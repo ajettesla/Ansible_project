@@ -2,11 +2,11 @@
 # defaults file for haproxy
 
 app:
-  ip1: "10.1.0.8"
+  ip1: devA
   port1: "80"
-  ip2: "10.1.0.4"
+  ip2: devB
   port2: "80"
-  ip3: "10.1.0.22"
+  ip3: devC
   port3: "80"
 
 lb:
